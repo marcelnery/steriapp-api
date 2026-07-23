@@ -165,10 +165,12 @@ app.get('/laudo/:id', async (req, res) => {
 // ===============================
 // START LOCAL
 // ===============================
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
+
+// retirad para escutar a port do vercel / 23/07
+
+app.listen(PORT, () => {
     console.log(`🚀 Backend rodando em http://localhost:${PORT}`);
   });
-}
+
 
 export default app;
