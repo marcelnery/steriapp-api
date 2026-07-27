@@ -26,32 +26,19 @@ dotenv.config();
 // MONGODB CONNECTION (SERVERLESS SAFE)
 // ===============================
 
-const MONGODB_URI = process.env.MONGODB_URI;
+// ===============================
+// MONGODB CONNECTION
+// ===============================
 
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function connectMongo() {
-  if (cached.conn) {
-    return cached.conn;
-  }
-
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI).then((mongoose) => {
-      console.log("✅ MongoDB conectado");
-      return mongoose;
-    });
-  }
-
-  cached.conn = await cached.promise;
-  return cached.conn;
-}
-
-connectMongo();
-
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("✅ MongoDB conectado");
+  })
+  .catch((err) => {
+    console.error("❌ Erro ao conectar ao MongoDB:", err);
+    process.exit(1);
+  });
 // ===============================
 // CONFIG
 // ===============================
@@ -169,8 +156,5 @@ app.get('/laudo/:id', async (req, res) => {
 // retirad para escutar a port do vercel / 23/07
 
 app.listen(PORT, () => {
-    console.log(`🚀 Backend rodando em http://localhost:${PORT}`);
+    console.log(`🚀servidor rodando na porta ${PORT}`);
   });
-
-
-export default app;
