@@ -66,7 +66,7 @@ app.use("/api", laudoRoutes); // mudanca de rota para api 12/03
 
 
 app.get('/', (req, res) => {
-  res.send('🚀 Backend SteriLink rodando com sucesso AGORA');
+  res.send('🚀 Backend SteriApp funcionando 28-07 vs2');
 });
 
 app.use("/api", registerRoutes);
