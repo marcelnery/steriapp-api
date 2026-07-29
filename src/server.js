@@ -43,7 +43,12 @@ mongoose
 // CONFIG
 // ===============================
 const app = express();
-const PORT = process.env.PORT || 3000;
+
+const PORT = process.env.PORT || process.env.APP_PORT || 3000;
+
+console.log("PORT =", process.env.PORT);
+console.log("APP_PORT =", process.env.APP_PORT);
+console.log("Usando porta =", PORT);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -156,5 +161,7 @@ app.get('/laudo/:id', async (req, res) => {
 // retirad para escutar a port do vercel / 23/07
 
 app.listen(PORT, () => {
-    console.log(`🚀servidor rodando na porta ${PORT}`);
-  });
+    console.log("=================================");
+    console.log('🚀 Servidor rodando na porta ${PORT}');
+    console.log("=================================");
+});
