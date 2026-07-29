@@ -104,7 +104,8 @@ this.sterTime = data.sterTime !== undefined ? Number(data.sterTime) : null;
   // URL DO LAUDO (QR CODE)
   // ===============================
   buildPublicUrl() {
-    return `https://backend-nu-nine-29.vercel.app/laudo/${this.id}`;
+    return // `https://backend-nu-nine-29.vercel.app/laudo/${this.id}`;
+    `https://api.steriapp.com.br/laudo/${this.id}`;                     // link correto para servidor 29/07
   }
 
   // ===============================

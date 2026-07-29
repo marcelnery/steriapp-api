@@ -19,7 +19,9 @@ async (email, token, nickname) => {
   const link =
 // `https://steriapp.com.br/reset-password.html?token=${token}`;  lINK CORRETO DA PAGINA AINDA NAO CAD DOMINIO
 
-`http://backend-nu-nine-29.vercel.app/reset-password.html?token=${token}`;  // link temporario para teste do app senha reset
+// `http://backend-nu-nine-29.vercel.app/reset-password.html?token=${token}`;  // link temporario para teste do app senha reset
+
+`https://api.steriapp.com.br/reset-password.html?token=${token}`; // link correto para servidor 29/07
 
   await transporter.sendMail({
 

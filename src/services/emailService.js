@@ -38,8 +38,11 @@ Programa: ${cycle.program}
 Código de erro: ${cycle.errorCode}
 
 Link do laudo:
-https://backend-nu-nine-29.vercel.app/laudo/${cycle.id}
+
+https://api.steriapp.com.br/laudo/${cycle.id}
 `;
+
+// https://backend-nu-nine-29.vercel.app/laudo/${cycle.id}  substituida 29/07 api.steriapp
 
   await transporter.sendMail({
 
